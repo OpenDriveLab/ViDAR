@@ -1,25 +1,31 @@
 # ViDAR: Visual Point Cloud Forecasting
 
-![](assets/teaser.png)
+![](./assets/teaser.png "Visual point cloud forecasting")
 
 > **Visual Point Cloud Forecasting enables Scalable Autonomous Driving**
 >
-> Zetong Yang, [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en&authuser=1), Yanan Sun, and [Hongyang Li](https://lihongyang.info/)  
+> [Zetong Yang](https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en&authuser=1), [Yanan Sun](https://scholar.google.com/citations?user=6TA1oPkAAAAJ&hl=en), and [Hongyang Li](https://lihongyang.info/)  
 > [OpenDriveLab](https://opendrivelab.com/) and Shanghai AI Lab
 >
-> - [arXiv paper]() | [Blog TODO]() | [Slides TODO]()
-> - [CVPR 2024 Autonomous Deiving Challenge](https://opendrivelab.com/AD24Challenge.html)
+> - :mailbox_with_mail: Primary contact: [Zetong Yang]((https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en)) ( tomztyang@gmail.com ) 
+> - [arXiv paper](./assets/ViDAR.pdf) | [Blog TODO]() | [Slides TODO]()
+> - [CVPR 2024 Autonomous Deiving Challenge - Predictive World Model](https://opendrivelab.com/AD24Challenge.html)
 
 
 ## Highlights <a name="highlights"></a>
 
-:star2: ViDAR
+:fire: **Visual point cloud forecasting**, a new self-supervised pre-training task for end-to-end autonomous driving, predicting 
+future point clouds from historical visual inputs, joint modeling the 3D geometry and temporal dynamics for simultaneous perception, prediction, and planning.
+
+:star2: **ViDAR**, the first visual point cloud forecasting architecture.
+
+![method](./assets/vidar.png "Architecture of ViDAR")
 
 :trophy: Predictive world model, with the form of visual point cloud forecasting, will be a main track in the `CVPR 2024 Autonomous Driving Challenge`. Please [stay tuned](https://opendrivelab.com/AD24Challenge.html) for further details!
 
 ## News <a name="news"></a>
 
-- `[2023/12]` ViDAR [paper]() released. *Code and models would be available around late January.*
+- `[2023/12]` ViDAR [paper](./assets/ViDAR.pdf) released. *Code and models would be available around late January.*
 
 ## Table of Contents
 
@@ -31,10 +37,9 @@
 
 ## Results and Model Zoo <a name="models"></a>
 
-|   Model  |  xxx  | Config | Download |
-| :------: | :---: | :----: | :------: |
-|   RN50   |       |  TODO  |   TODO   |
-|   RN101  |       |  TODO  |   TODO   |
+|   Pre-trained Checkpoint  | Config | CD@1s | CD@2s | CD@3s |
+| :------: | :---: | :----: | :----: | :----: | 
+|   ViDAR-RN101   |  TODO  |  TODO   | TODO | TODO |
 
 
 ## License and Citation
