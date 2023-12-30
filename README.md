@@ -4,9 +4,9 @@
 
 > **Visual Point Cloud Forecasting enables Scalable Autonomous Driving**
 >
-> [Zetong Yang](https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en&authuser=1), [Yanan Sun](https://scholar.google.com/citations?user=6TA1oPkAAAAJ&hl=en), and [Hongyang Li](https://lihongyang.info/)  
-> [OpenDriveLab](https://opendrivelab.com/) and Shanghai AI Lab
->
+> [Zetong Yang](https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en&authuser=1), [Yanan Sun](https://scholar.google.com/citations?user=6TA1oPkAAAAJ&hl=en), and [Hongyang Li](https://lihongyang.info/)
+> 
+> - Presented by [OpenDriveLab](https://opendrivelab.com/) and Shanghai AI Lab
 > - :mailbox_with_mail: Primary contact: [Zetong Yang]((https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en)) ( tomztyang@gmail.com ) 
 > - [arXiv paper](./assets/ViDAR.pdf) | [Blog TODO]() | [Slides TODO]()
 > - [CVPR 2024 Autonomous Deiving Challenge - Predictive World Model](https://opendrivelab.com/AD24Challenge.html)
