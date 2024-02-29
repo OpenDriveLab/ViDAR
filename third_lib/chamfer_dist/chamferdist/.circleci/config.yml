@@ -1,0 +1,68 @@
+version: 2.1
+
+references:
+
+  install_deps: &install_deps
+    run:
+      name: Install dependencies
+      command: |
+        sudo apt-get update && sudo apt-get install -y cmake
+        pip install "$TORCH_VERSION"
+        pip install flake8
+
+  flake8_test: &flake8_test
+    run:
+      name: flake8 compatibility
+      command: |
+        pip install flake8
+        flake8 .
+
+  build_pkg: &build_pkg
+    run:
+      name: Build package
+      command: |
+        pip install .
+        python setup.py clean
+
+jobs:
+
+  PyTorch:
+    docker:
+      - image: circleci/python:3.6
+    environment:
+      - TORCH_VERSION: "torch"
+    steps: &steps
+      - checkout
+      - *flake8_test
+      - *install_deps
+      - *build_pkg
+
+  PyTorch_1_6:
+    docker:
+      - image: circleci/python:3.6
+    environment:
+      - TORCH_VERSION: "torch==1.6"
+    steps: &steps
+      - checkout
+      - *flake8_test
+      - *install_deps
+      - *build_pkg
+
+  PyTorch_1_5:
+    docker:
+      - image: circleci/python:3.6
+    environment:
+      - TORCH_VERSION: "torch==1.5"
+    steps: &steps
+      - checkout
+      - *flake8_test
+      - *install_deps
+      - *build_pkg
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - PyTorch
+      - PyTorch_1_6
+      - PyTorch_1_5

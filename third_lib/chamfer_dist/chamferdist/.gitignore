@@ -9,13 +9,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
-ckpts/
-data/
-ckpts
-data
-test/
-val/
-work_dirs/
 develop-eggs/
 dist/
 downloads/
@@ -33,18 +26,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
-# Some experiments directory.
-pretrained
-tensorboard_comp
-dbg
-scripts
-viz
-work_dirs
-*dbg*
-archived
-projects/configs/exp_vidar_pretrain/
-projects/configs/exp_vidar_finetune/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -66,7 +47,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -110,12 +90,8 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
+# celery beat schedule file
 celerybeat-schedule
-celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
