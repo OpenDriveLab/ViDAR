@@ -25,6 +25,7 @@ future point clouds from historical visual inputs, joint modeling the 3D geometr
 
 ## News <a name="news"></a>
 
+- `[2024/3]` :fire: Predictive world model challenge is launched. Please refer to the [link](docs/CHALLENGE.md) for more details.
 - `[2024/2]` ViDAR code and models initially released.
 - `[2024/2]` ViDAR is accepted by CVPR 2024.
 - `[2023/12]` ViDAR [paper](https://arxiv.org/abs/2312.17655) released.
