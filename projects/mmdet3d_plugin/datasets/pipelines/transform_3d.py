@@ -32,7 +32,7 @@ class PadMultiViewImage(object):
         elif self.size_divisor is not None:
             padded_img = [mmcv.impad_to_multiple(
                 img, self.size_divisor, pad_val=self.pad_val) for img in results['img']]
-        
+
         results['ori_shape'] = [img.shape for img in results['img']]
         results['img'] = padded_img
         results['img_shape'] = [img.shape for img in padded_img]
@@ -253,6 +253,7 @@ class CustomCollect3D(object):
                             'can_bus',
                             'ego2global_translation', 'ego2global_rotation',
                             'lidar2ego_translation', 'lidar2ego_rotation',
+                            'lidar2global_rotation',
                             )):
         self.keys = keys
         self.meta_keys = meta_keys
@@ -267,10 +268,10 @@ class CustomCollect3D(object):
                 - keys in ``self.keys``
                 - ``img_metas``
         """
-       
+
         data = {}
         img_metas = {}
-      
+
         for key in self.meta_keys:
             if key in results:
                 img_metas[key] = results[key]
@@ -278,7 +279,7 @@ class CustomCollect3D(object):
         data['img_metas'] = DC(img_metas, cpu_only=True)
         for key in self.keys:
             if key not in results:
-                data[key] = None 
+                data[key] = None
             else:
                 data[key] = results[key]
         return data

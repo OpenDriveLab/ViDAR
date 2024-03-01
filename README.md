@@ -99,8 +99,8 @@ Setup ViDAR project.
 git clone https://github.com/OpenDriveLab/ViDAR
 
 cd ViDAR
-mkdir ckpts
-cd ckpts & wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
+mkdir pretrained
+cd pretrained & wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
 
 # Install chamferdistance library.
 cd third_lib/chamfer_dist/chamferdist/

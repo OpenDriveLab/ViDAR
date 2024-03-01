@@ -152,12 +152,23 @@ class CustomNuScenesDataset(NuScenesDataset):
         """
         info = self.data_infos[index]
         # standard protocal modified from SECOND.Pytorch
+
+        # For BEVFormer alignment.
+        lidar2ego = np.eye(4)
+        lidar2ego[:3, :3] = Quaternion(info['lidar2ego_rotation']).rotation_matrix
+        lidar2ego[:3, 3] = np.array(info['lidar2ego_translation'])
+        ego2global = np.eye(4)
+        ego2global[:3, :3] = Quaternion(info['ego2global_rotation']).rotation_matrix
+        ego2global[:3, 3] = np.array(info['ego2global_translation'])
+        lidar2global_rotation = ego2global[:3, :3] @ lidar2ego[:3, :3]
+
         input_dict = dict(
             sample_idx=info['token'],
             pts_filename=info['lidar_path'],
             sweeps=info['sweeps'],
             ego2global_translation=info['ego2global_translation'],
             ego2global_rotation=info['ego2global_rotation'],
+            lidar2global_rotation=lidar2global_rotation,
             prev_idx=info['prev'],
             next_idx=info['next'],
             scene_token=info['scene_token'],
