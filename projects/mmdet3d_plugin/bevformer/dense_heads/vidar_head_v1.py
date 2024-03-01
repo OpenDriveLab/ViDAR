@@ -191,6 +191,13 @@ class ViDARHeadV1(ViDARHeadBase):
                 img_metas=img_metas)
 
             # 4. compute loss.
+            if i != self.pred_history_frame_num:
+                # For aux history-future supervision:
+                #  only compute loss for cur_frame prediction.
+                loss_weight = np.array([[1]] + [[0]] * (len(self.loss_weight) - 1))
+            else:
+                loss_weight = self.loss_weight
+
             cur_loss_dict = super().loss(
                 dict(next_bev_preds=cur_bev_preds,
                      valid_frames=np.arange(0, len(src_frames))),
@@ -201,7 +208,8 @@ class ViDARHeadV1(ViDARHeadBase):
                 tgt_pc_range=tgt_pc_range,
                 pred_frame_num=len(self.loss_weight)-1,
                 img_metas=img_metas,
-                batched_origin_points=cur_origin_points)
+                batched_origin_points=cur_origin_points,
+                loss_weight=loss_weight)
 
             # 5. merge dict.
             cur_frame_loss_weight = self.per_frame_loss_weight[i]

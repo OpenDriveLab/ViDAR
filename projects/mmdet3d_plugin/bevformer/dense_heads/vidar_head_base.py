@@ -518,7 +518,8 @@ class ViDARHeadBase(ViDARHeadTemplate):
              tgt_pc_range,
              pred_frame_num,
              img_metas=None,
-             batched_origin_points=None):
+             batched_origin_points=None,
+             loss_weight=None):
         """"Loss function.
         Args:
             pred_dict: A dictionary maintaining the point cloud prediction of different frames.
@@ -562,9 +563,10 @@ class ViDARHeadBase(ViDARHeadTemplate):
             intermediate_sigma.append(lvl_i_sigma)
 
         ray_grid_step = self.ray_grid_step
+        loss_weight = self.loss_weight if loss_weight is None else loss_weight
         r_mask_total, r_feat_total, r_loss_weight_total, r_grid_length = self._get_grid_features(
             batched_origin_grids, batched_gt_grids, batched_gt_tindex,
-            intermediate_sigma, self.loss_weight,
+            intermediate_sigma, loss_weight,
             ray_grid_step=ray_grid_step)
 
         loss_dict = dict()
@@ -650,9 +652,10 @@ class ViDARHeadBase(ViDARHeadTemplate):
                     if cur_gt_pcd.shape[1] == 0:
                         continue
                     loss_src, loss_tgt, _, _ = chamfer_distance(cur_pred_pcd, cur_gt_pcd)
-                    dense_voxel_loss = dense_voxel_loss + (loss_src + loss_tgt) / 2.
+                    dense_voxel_loss = dense_voxel_loss + (
+                            (loss_src + loss_tgt) / 2.) * loss_weight[f_id, 0]
 
-            dense_voxel_loss = dense_voxel_loss / (bs * valid_frame_num)
+            dense_voxel_loss = dense_voxel_loss / (loss_weight.sum() * bs)
             loss_dict.update({'loss.dense_voxel': dense_voxel_loss * self.dense_loss_weight})
         return loss_dict
 
