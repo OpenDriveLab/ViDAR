@@ -4,6 +4,8 @@
 
 > **Visual Point Cloud Forecasting enables Scalable Autonomous Driving [CVPR 2024]**
 >
+> `Autonomous Driving Challenge 2024` **Predictive World Model** is [activated](docs/CHALLENGE.md)!
+>
 > [Zetong Yang](https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en&authuser=1), [Yanan Sun](https://scholar.google.com/citations?user=6TA1oPkAAAAJ&hl=en), and [Hongyang Li](https://lihongyang.info/)
 > 
 > - Presented by [OpenDriveLab](https://opendrivelab.com/) and Shanghai AI Lab
