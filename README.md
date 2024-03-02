@@ -36,7 +36,7 @@ future point clouds from historical visual inputs, joint modeling the 3D geometr
 
 Still in progress:
 - [x] ViDAR-nuScenes-1/8 training and BEVFormer fine-tuning configurations.
-- [ ] ViDAR-nuplan-mini training configurations. (Welcome joining [predictive world model challenge](https://opendrivelab.com/challenge2024/#predictive_world_model)!)
+- [ ] ViDAR-OpenScene-mini training configurations. (Welcome joining [predictive world model challenge](https://opendrivelab.com/challenge2024/#predictive_world_model)!)
 - [ ] ViDAR-nuScenes-full training and downstream fine-tuning configurations. (Stay tuned due to limited resources for reproducing results currently)
 
 
@@ -110,8 +110,8 @@ pip install .
 
 ## Prepare Datasets <a name="prepare-datasets"></a>
 
-- [nuScenes](https://www.nuscenes.org/): please refer to the repo of [BEVFormer](https://github.com/fundamentalvision/BEVFormer/blob/master/docs/prepare_dataset.md).
-- [nuPlan](https://www.nuscenes.org/nuplan): please refer to the [challenge page](docs/CHALLENGE.md).
+- [OpenScene](https://github.com/OpenDriveLab/OpenScene): please refer to [HERE](docs/DATASET.md#openscene).
+- [nuScenes](https://www.nuscenes.org/): please refer to [HERE](docs/DATASET.md#nuscenes).
 
 
 ## Train and Evaluate <a name="train-and-evaluate"></a>
