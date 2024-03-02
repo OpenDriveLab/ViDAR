@@ -22,11 +22,7 @@ class NuPlanViDARDatasetTemplate(NuScenesViDARDatasetTemplate):
 
         ann_file: the root of nuplan pickle files.
         """
-        data_infos = []
-        for file in os.listdir(ann_file):
-            path = os.path.join(ann_file, file)
-            if file.endswith('.pkl'):
-                data_infos.extend(mmcv.load(path))
+        data_infos = mmcv.load(ann_file)
         data_infos = data_infos[::self.load_interval]
         return data_infos
 
