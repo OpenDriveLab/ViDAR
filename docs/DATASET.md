@@ -1,4 +1,4 @@
-##OpenScene <a name="openscene"></a>
+##OpenScene
 
 You can directly follow [HERE](https://github.com/OpenDriveLab/OpenScene/edit/main/docs/getting_started.md#download-data) for OpenScene data pre-processing, or
 follow the step-by-step instructions below, which is the same as above link.

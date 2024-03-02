@@ -19,7 +19,7 @@ Serving as an abstract spatio-temporal representation of reality, the world mode
 ## Table of Contents
 
 1. [Problem Formulation](#problem-formulation)
-2. [ViDAR-nuPlan-Baseline](#baseline)
+2. [ViDAR-OpenScene-Baseline](#baseline)
 3. [Evaluation: Chamfer Distance](#eval)
 4. [Submission](#submission)
 5. [Dataset: OpenScene](#dataset)
@@ -43,7 +43,22 @@ will be provided soon.` Our evaluation toolkit will render
 point clouds according to ray directions and provided depths by participants, and compute chamfer distance for points within
 the range from -51.2m to 51.2m on the X- and Y-axis as the criterion.
 
-### ViDAR-nuPlan-Baseline <a name="baseline"></a>
+### ViDAR-OpenScene-Baseline <a name="baseline"></a>
+
+- Download and pre-process OpenScene dataset as illustrated at [HERE](./DATASET.md).
+- Try the ViDAR model on OpenScene-mini subset:
+  - OpenScene-mini-1/8-subset: [config](../projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_1_8_3future.py)
+  - OpenScene-mini-Full-set: [config](../projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_full_3future.py)
+```bash
+CONFIG=/path/to/your/config
+GPU_NUM=8
+
+./tools/dist_train.sh ${CONFIG} ${GPU_NUM}
+```
+- To train ViDAR model on the entire OpenScene dataset:
+  - OpenScene-Train-1/8-subset: [config](../projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_train_1_8_3future.py)
+  - OpenScene-Train-Full-set: [config](../projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_train_full_3future.py)
+
 To be finished in one week.
 
 ### Evaluation: Chamfer Distance <a name="eval"></a>

@@ -448,7 +448,6 @@ class ViDAR(BEVFormer):
             ret_dict[f'frame.{frame_name}'] = dict(
                 count=0,
                 chamfer_distance=0,
-                chamfer_distance_inner=0,
                 l1_error=0,
                 absrel_error=0,
             )
@@ -457,8 +456,6 @@ class ViDAR(BEVFormer):
                 gt_pcd = gt_pcds[bs][frame_idx]
 
                 ret_dict[f'frame.{frame_name}']['chamfer_distance'] += (
-                    e2e_predictor_utils.compute_chamfer_distance(pred_pcd, gt_pcd).item())
-                ret_dict[f'frame.{frame_name}']['chamfer_distance_inner'] += (
                     e2e_predictor_utils.compute_chamfer_distance_inner(
                         pred_pcd, gt_pcd, self.point_cloud_range).item())
 

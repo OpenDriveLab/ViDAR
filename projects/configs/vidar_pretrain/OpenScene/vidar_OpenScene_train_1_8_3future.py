@@ -25,7 +25,7 @@ frame_loss_weight = [
     [0]  # ignore.
 ]
 supervise_all_future = True  # set to False for saving GPU memory.
-load_frame_interval = 8  # use 1/8 nuscenes dataset for faster evaluation.
+load_frame_interval = 8
 
 # ViDAR model.
 vidar_head_pred_history_frame_num = 0
@@ -35,12 +35,15 @@ vidar_head_per_frame_loss_weight = (1.0,)
 # latent rendering.
 future_latent_render_keep_idx = (),
 latent_render_act_fn = 'sigmoid'
+latent_render_layer_idx = (2,)
+latent_render_grid_step = 0.5
 
 img_norm_cfg = dict(
     mean=[103.530, 116.280, 123.675], std=[1.0, 1.0, 1.0], to_rgb=False)
 # nuPlan class samples (not used.)
 class_names = ['vehicle', 'bicycle', 'pedestrian',
                'traffic_cone', 'barrier', 'czone_sign', 'generic_object']
+num_cams = 8
 
 input_modality = dict(
     use_lidar=False,
@@ -143,7 +146,8 @@ model = dict(
                             embed_dims=_dim_,
                             num_levels=1),
                     ],
-                    latent_render=dict(embed_dims=256, pred_height=16, num_pred_fcs=0, grid_step=1.0, grid_num=256,
+                    latent_render=dict(embed_dims=256, pred_height=16, num_pred_fcs=0,
+                                       grid_step=latent_render_grid_step, grid_num=256,
                                        reduction=16, act=latent_render_act_fn, ),
                     feedforward_channels=_ffn_dim_,
                     ffn_dropout=0.1,
@@ -163,12 +167,15 @@ model = dict(
         as_two_stage=False,
         transformer=dict(
             type='PerceptionTransformer',
+            num_cams=num_cams,
             rotate_prev_bev=True,
             use_shift=True,
             use_can_bus=True,
             embed_dims=_dim_,
             encoder=dict(
                 type='CustomBEVFormerEncoder',
+                keep_idx=latent_render_layer_idx,
+                latent_rendering_lid=latent_render_layer_idx,
                 num_layers=6,
                 pc_range=point_cloud_range,
                 num_points_in_pillar=4,
@@ -183,6 +190,7 @@ model = dict(
                         dict(
                             type='SpatialCrossAttention',
                             pc_range=point_cloud_range,
+                            num_cams=num_cams,
                             deformable_attention=dict(
                                 type='MSDeformableAttention3D',
                                 embed_dims=_dim_,
@@ -191,7 +199,8 @@ model = dict(
                             embed_dims=_dim_,
                         )
                     ],
-                    latent_render=dict(embed_dims=256, pred_height=16, num_pred_fcs=0, grid_step=1.0, grid_num=256,
+                    latent_render=dict(embed_dims=256, pred_height=16, num_pred_fcs=0,
+                                       grid_step=latent_render_grid_step, grid_num=256,
                                        reduction=16, act=latent_render_act_fn,),
                     feedforward_channels=_ffn_dim_,
                     ffn_dropout=0.1,
@@ -255,13 +264,10 @@ model = dict(
             pc_range=point_cloud_range))))
 
 dataset_type = 'NuPlanViDARDatasetV1'
-# path to the sensor_blob
-nuplan_root = '/cpfs01/shared/opendrivelab/opendrivelab_hdd/nuplan/dataset/nuplan-v1.1/'
-data_root = nuplan_root + 'sensor_blobs'
-train_ann_pickle_root = '/cpfs01/shared/opendrivelab/opendrivelab_hdd/yangzetong/workshop_codes/CVPR2024/' \
-                        'openscene_metadata/mini/'
-val_ann_pickle_root = '/cpfs01/shared/opendrivelab/opendrivelab_hdd/yangzetong/workshop_codes/CVPR2024/' \
-                      'openscene_metadata/mini/'
+data_split = 'trainval'
+data_root = f'data/openscene-v1.1/sensor_blobs/{data_split}'
+train_ann_pickle_root = f'data/openscene-v1.1/openscene_{data_split}_train.pkl'
+val_ann_pickle_root = f'data/openscene-v1.1/openscene_{data_split}_val.pkl'
 file_client_args = dict(backend='disk')
 
 train_pipeline = [
@@ -283,7 +289,7 @@ train_pipeline = [
         cur_sweep_cfg=dict(
             max_num_points=1,
             point_cloud_range=point_cloud_range,
-            voxel_size=[0.5, 0.5, 0.5],
+            voxel_size=[1.0, 1.0, 1.0],
             max_voxels=50000,
         ),
         time_dim=4,
@@ -293,6 +299,7 @@ train_pipeline = [
     dict(type='PhotoMetricDistortionMultiViewImage'),
 
     dict(type='NormalizeMultiviewImage', **img_norm_cfg),
+    dict(type='RandomScaleImageMultiViewImage', scales=[2 / 3]),
     dict(type='PadMultiViewImage', size_divisor=32),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(type='CustomCollect3D', keys=['img', 'points', 'aug_param'])
@@ -303,6 +310,7 @@ test_pipeline = [
          coord_type='LIDAR',),
     dict(type='LoadMultiViewImageFromFiles', to_float32=True),
     dict(type='NormalizeMultiviewImage', **img_norm_cfg),
+    dict(type='RandomScaleImageMultiViewImage', scales=[2 / 3]),
     dict(type='PadMultiViewImage', size_divisor=32),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(type='CustomCollect3D', keys=['img', 'points'])

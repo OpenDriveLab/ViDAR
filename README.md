@@ -110,7 +110,7 @@ pip install .
 
 ## Prepare Datasets <a name="prepare-datasets"></a>
 
-- [OpenScene](https://github.com/OpenDriveLab/OpenScene): please refer to [HERE](docs/DATASET.md#openscene).
+- [OpenScene](https://github.com/OpenDriveLab/OpenScene): please refer to [HERE](docs/DATASET.md).
 - [nuScenes](https://www.nuscenes.org/): please refer to [HERE](docs/DATASET.md#nuscenes).
 
 
