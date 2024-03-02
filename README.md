@@ -44,9 +44,10 @@ Still in progress:
 
 1. [Results and Model Zoo](#models)
 2. [Installation](#installation)
-3. [Train and Evaluate](#train-and-evaluate)
-4. [License and Citation](#license-and-citation)
-5. [Related Resources](#resources)
+3. [Prepare Datasets](#prepare-datasets)
+4. [Train and Evaluate](#train-and-evaluate)
+5. [License and Citation](#license-and-citation)
+6. [Related Resources](#resources)
 
 ## Results and Model Zoo <a name="models"></a>
 
@@ -107,7 +108,13 @@ cd third_lib/chamfer_dist/chamferdist/
 pip install .
 ```
 
-## Train and Evaluate
+## Prepare Datasets <a name="prepare-datasets"></a>
+
+- [nuScenes](https://www.nuscenes.org/): please refer to the repo of [BEVFormer](https://github.com/fundamentalvision/BEVFormer/blob/master/docs/prepare_dataset.md).
+- [nuPlan](https://www.nuscenes.org/nuplan): please refer to the [challenge page](docs/CHALLENGE.md).
+
+
+## Train and Evaluate <a name="train-and-evaluate"></a>
 
 ### Train
 
@@ -149,7 +156,7 @@ GPU_NUM=1
 ```
 
 
-## License and Citation
+## License and Citation <a name="license-and-citation"></a>
 
 All assets and code are under the [Apache 2.0 license](./LICENSE) unless specified otherwise.
 

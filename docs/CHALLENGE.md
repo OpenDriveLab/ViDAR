@@ -95,8 +95,8 @@ The stats of the dataset is summarized [here](docs/dataset_stats.md).
 > - `TODO`: Full semantic labels of grids would be released in future version
 
 ### Getting Started
-- [Download Data](/docs/getting_started.md#download-data)
-- [Prepare Dataset](/docs/getting_started.md#prepare-dataset)
+- [Download Data](https://github.com/OpenDriveLab/OpenScene/blob/main/docs/getting_started.md#download-data)
+- [Prepare Dataset](https://github.com/OpenDriveLab/OpenScene/blob/main/docs/getting_started.md#prepare-dataset)
 
 ## License and Citation <a name="license-and-citation"></a>
 > Our dataset is based on the [nuPlan Dataset](https://www.nuscenes.org/nuplan) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) license and [nuPlan Dataset License Agreement for Non-Commercial Use](https://www.nuscenes.org/terms-of-use). You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
