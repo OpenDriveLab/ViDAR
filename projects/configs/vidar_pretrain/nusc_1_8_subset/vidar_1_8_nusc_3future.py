@@ -13,7 +13,7 @@ voxel_size = [0.2, 0.2, 8]
 # Dataloader.
 future_queue_length_train = 4
 future_pred_frame_num_train = 3
-rand_frame_interval = (-1, 1)
+rand_frame_interval = (-1, 1, 2)
 future_queue_length_test = 6
 future_pred_frame_num_test = 6
 future_decoder_layer_num = 3
@@ -36,7 +36,7 @@ vidar_head_per_frame_loss_weight = (0.2, 0.4, 0.6, 1.0, 1.2)
 future_latent_render_keep_idx = (),
 latent_render_act_fn = 'sigmoid'
 latent_render_layer_idx = (2,)
-latent_render_grid_step = 1.0  # TODO: change it to 0.5.
+latent_render_grid_step = 0.5
 
 ida_aug_conf = {
     "reisze": [720, 765, 810, 855, 900, 945, 990, 1035, 1080],  #  (0.8, 1.2)

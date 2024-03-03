@@ -39,7 +39,7 @@ queue_length = 4 # each sequence contains `queue_length` frames.
 latent_render_act_fn = 'sigmoid'
 latent_render_layer_idx = (2,)
 backwarded_prev_frame_num = 1
-latent_render_grid_step = 1.0  # TODO: change it to 0.5.
+latent_render_grid_step = 0.5
 
 
 model = dict(
