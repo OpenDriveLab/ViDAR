@@ -64,8 +64,8 @@ Still in progress:
 
 |  Pre-train Model | Dataset  | Config | CD@1s | CD@2s | CD@3s | models & logs |
 | :------: | :---: | :---: | :----: | :----: | :----: | :----: |
-|   ViDAR-RN101-OpenScene-3future | OpenScene-mini (12.5% Data)   |  [vidar-OpenScene-pretrain-1future](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_1_8_3future.py)  |  1.41   | 1.57 | 1.78 |  [models](https://drive.google.com/file/d/1aai3Z7JZavtDAFYzY1pwe41MNNRO_Wn_/view?usp=sharing) / [logs](https://drive.google.com/file/d/1oHdLH11l_ik2M5KyJBtklxa5Skz1bVra/view?usp=sharing) |
-|   ViDAR-RN101-OpenScene-3future | OpenScene-mini-Full (100% Data)   |  [vidar-OpenScene-pretrain-3future](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_full_3future.py)  |  TODO   | TODO | TODO |  [models]() / [logs]() |
+|   ViDAR-RN101-OpenScene-3future | OpenScene-mini (12.5% Data)   |  [vidar-OpenScene-pretrain-3future-1-8](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_1_8_3future.py)  |  1.41   | 1.57 | 1.78 |  [models](https://drive.google.com/file/d/1aai3Z7JZavtDAFYzY1pwe41MNNRO_Wn_/view?usp=sharing) / [logs](https://drive.google.com/file/d/1oHdLH11l_ik2M5KyJBtklxa5Skz1bVra/view?usp=sharing) |
+|   ViDAR-RN101-OpenScene-3future | OpenScene-mini-Full (100% Data)   |  [vidar-OpenScene-pretrain-3future-full](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_full_3future.py)  |  TODO   | TODO | TODO |  [models]() / [logs]() |
 
 ### Down-stream fine-tuning
 | Downstream Model | Dataset |  pre-train | Config | NDS | mAP | models & logs |

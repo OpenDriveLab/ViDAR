@@ -8,7 +8,7 @@ follow the step-by-step instructions below, which is the same as above link.
 - Download and unzip all the sensor data from [nuPlan](https://www.nuscenes.org/nuplan). For ViDAR, we use both
 the `Camera` sensor data and the `LiDAR` sensor data.
 - Download and unzip our pre-processed `meta_data` at the following links:
-  - mini-set: [openscene_metadata_mini.tgz](https://drive.google.com/file/d/1vGaTaXUQWEo9oZgJe_pUmKXNeCVAT8ME/view?usp=drive_link) (509.6 MB) 
+  - mini-set: [openscene_metadata_mini.tgz](https://drive.google.com/file/d/1H3bDDYpjrgr1a4rnpbYRhG8wWMOiBLfN/view) (509.6 MB) 
   - trainval-set: [openscene_metadata_trainval.tgz](https://drive.google.com/file/d/1ce3LLQDpST-QzpV1ZVZcaMnjVkZnHXUq/view?usp=drive_link) (6.6 GB)
   - test-set: [openscene_metadata_test.tgz](https://drive.google.com/file/d/1hTQ56OqaNgljE3zD5qtte91uNE9qgSMk/view?usp=drive_link) (31.3 MB)
   - private-test-set: will be announced soon.
