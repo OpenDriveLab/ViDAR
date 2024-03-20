@@ -6,11 +6,18 @@ follow the step-by-step instructions below, which is the same as above link.
 **Download and Unzip Data**
 
 - Download and unzip all the sensor data from [nuPlan](https://www.nuscenes.org/nuplan). For ViDAR, we use both
-the `Camera` sensor data and the `LiDAR` sensor data.
+the `Camera` sensor data and the `LiDAR` sensor data. We also provide the links below:
+  - `mini-set` openscene_sensor_mini_camera (84 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_mini_camera)
+  - `mini-set` openscene_sensor_mini_lidar (60 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_mini_lidar)
+  - `trainval-set` openscene_sensor_trainval_camera (1.1 TB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1)
+  - `trainval-set` openscene_sensor_trainval_lidar (822 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1)
+  - `test-set` openscene_sensor_test_camera (120 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_test_camera)
+  - `test-set` openscene_sensor_test_lidar (87 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_test_lidar)
+
 - Download and unzip our pre-processed `meta_data` at the following links:
-  - mini-set: [openscene_metadata_mini.tgz](https://drive.google.com/file/d/1H3bDDYpjrgr1a4rnpbYRhG8wWMOiBLfN/view) (509.6 MB) 
-  - trainval-set: [openscene_metadata_trainval.tgz](https://drive.google.com/file/d/1ce3LLQDpST-QzpV1ZVZcaMnjVkZnHXUq/view?usp=drive_link) (6.6 GB)
-  - test-set: [openscene_metadata_test.tgz](https://drive.google.com/file/d/1hTQ56OqaNgljE3zD5qtte91uNE9qgSMk/view?usp=drive_link) (31.3 MB)
+  - `mini-set` openscene_metadata_mini.tgz (509.6 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_mini.tgz?download=true) 
+  - `trainval-set` openscene_metadata_trainval.tgz (6.6 GB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_trainval.tgz?download=true)
+  - `test-set` openscene_metadata_test.tgz (454 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_test.tgz?download=true)
   - private-test-set: will be announced soon.
 
 After downloading and unzipping all the data, soft linking those source data files to the `ViDAR/data` folder as the following structure.

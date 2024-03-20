@@ -28,7 +28,7 @@ Serving as an abstract spatio-temporal representation of reality, the world mode
 
 
 ### Problem Formulation <a name="problem-formulation"></a>
-Given an visual observation of the world for the past 3 seconds, predict the point clouds in the future 3 seconds based on the designated
+Given a visual observation of the world for the past 3 seconds, predict the point clouds in the future 3 seconds based on the designated
 future ego-vehicle pose. In other words,
 given historical images in 3 seconds and corresponding history ego-vehicle pose information (from -2.5s to 0s, 6 frames under 2 Hz),
 the participants are required to forecast future point clouds
@@ -37,9 +37,9 @@ in 3 seconds (from 0.5s to 3s, 6 frames under 2Hz) with specified future ego-pos
 All output point clouds should be aligned to the LiDAR coordinates of the ego-vehicle in the `n` timestamp, which spans a
 range of 1 to 6 given predicting 6 future frames.
 
-We then evaluate the predicted future point clouds by querying rays. We will provide a set of query rays for testing propose,
+We then evaluate the predicted future point clouds by querying rays. We will provide a set of query rays (5k rays per scene) for testing propose,
 and `the participants are required to estimate depth along each ray for rendering point clouds. An example of submission 
-will be provided soon.` Our evaluation toolkit will render
+is provided.` Our evaluation toolkit will render
 point clouds according to ray directions and provided depths by participants, and compute chamfer distance for points within
 the range from -51.2m to 51.2m on the X- and Y-axis as the criterion.
 
@@ -71,7 +71,47 @@ within the range of -51.2m to 51.2m. Participants are required to provide depths
 system will render point clouds by ray directions and provided depth for chamfer distance evaluation.
 
 ### Submission <a name="worldmodel-submission"></a>
-The evaluation server at [Hugging Face](https://huggingface.co/spaces/AGC2024-P/predictive-world-model-2024) will be open around `late March`!
+
+The submission should be in the following format:
+```
+dict {
+    'method':                               <str> -- name of the method
+    'team':                                 <str> -- name of the team, identical to the Google Form
+    'authors':                              <list> -- list of str, authors
+    'e-mail':                               <str> -- e-mail address
+    'institution / company':                <str> -- institution or company
+    'country / region':                     <str> -- country or region
+    'results': {
+        [identifier]: {                     <frame_token> -- identifier of the frame
+            [frame_1]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 0.5s frame.
+            [frame_2]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 1.0s frame.
+            [frame_3]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 1.5s frame.
+            [frame_4]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 2.0s frame.
+            [frame_5]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 2.5s frame.
+            [frame_6]:                      <np.array> [n, 1] -- Predicted distance of each designated ray of 3.0s frame.
+        },
+        [identifier]: {
+        }
+        ...
+    }
+}
+```
+
+You can also prepare your submission pickle following the following scripts. **Remember to update your information in [tools/convert_nuplan_submission_pkl.py](../tools/convert_nuplan_submission_pkl.py)**
+```bash
+CONFIG=path/to/vidar_config.py
+CKPT=path/to/checkpoint.pth
+GPU_NUM=8
+
+# submission/root: path/to/your/submission
+./tools/dist_test.sh ${CONFIG} ${CKPT} ${GPU_NUM} \
+  --cfg-options 'model._submission=True' 'model._submission_path=submission/root'
+  
+# Convert submission to desired pickle file.
+python tools/convert_nuplan_submission_pkl.py \
+  submission/root \  # path to the generated submission .txt files.
+  submission/dt.pkl  # path to the submitted pickle file.
+```
 
 ## Dataset: OpenScene <a name="dataset"></a>
 

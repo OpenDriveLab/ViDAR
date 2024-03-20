@@ -37,7 +37,8 @@ future point clouds from historical visual inputs, joint modeling the 3D geometr
 Still in progress:
 - [x] ViDAR-nuScenes-1/8 training and BEVFormer fine-tuning configurations.
 - [x] ViDAR-OpenScene-mini training configurations. (Welcome joining [predictive world model challenge](https://opendrivelab.com/challenge2024/#predictive_world_model)!)
-- [ ] ViDAR-nuScenes-full training and downstream fine-tuning configurations. (Stay tuned due to limited resources for reproducing results currently)
+- [ ] `[April]` ViDAR-nuScenes-full training and BEVFormer full fine-tuning configurations.
+- [ ] UniAD fine-tuning code and configuration.
 
 
 ## Table of Contents

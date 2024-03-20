@@ -4,6 +4,7 @@
 #---------------------------------------------------------------------------------#
 
 import mmcv
+import os
 import torch
 from mmcv.runner import force_fp32, auto_fp16
 from mmdet.models import DETECTORS
@@ -54,8 +55,13 @@ class ViDAR(BEVFormer):
                  # Supervision.
                  supervise_all_future=True,
 
+                 # Visualize point cloud.
                  _viz_pcd_flag=False,
                  _viz_pcd_path='dbg/pred_pcd',  # root/{prefix}
+
+                 # Test server submission.
+                 _submission=False,  # Flags for submission.
+                 _submission_path='submission/model',  # root/{prefix}
 
                  *args,
                  **kwargs,):
@@ -91,6 +97,8 @@ class ViDAR(BEVFormer):
 
         self._viz_pcd_flag = _viz_pcd_flag
         self._viz_pcd_path = _viz_pcd_path
+        self._submission = _submission
+        self._submission_path = _submission_path
 
         # remove the useless modules in pts_bbox_head
         #  * box/cls prediction head; decoder transformer.
@@ -480,6 +488,11 @@ class ViDAR(BEVFormer):
                         gt_pcd=gt_pcd_inside.cpu().numpy()
                     )
 
+                if self._submission and frame_idx > 0:
+                    # ViDAR additionally predict the current frame as 0-th index.
+                    #   So, we need to ignore the 0-th index by default.
+                    self._save_prediction(pred_pcd, img_metas[bs], frame_idx)
+
                 count += 1
             ret_dict[f'frame.{frame_name}']['count'] = count
 
@@ -487,6 +500,23 @@ class ViDAR(BEVFormer):
             print('==== Visualize predicted point clouds done!! End the program. ====')
             print(f'==== The visualized point clouds are stored at {out_path} ====')
         return [ret_dict]
+
+    def _save_prediction(self, pred_pcd, img_meta, frame_idx):
+        """ Save prediction.
+
+        The filename is <index>-<future-id>.txt
+        In each line of the file: pred_depth
+        """
+        base_name = img_meta['sample_idx']
+        base_name = f'{base_name}_{frame_idx}.txt'
+        mmcv.mkdir_or_exist(self._submission_path)
+        base_name = os.path.join(self._submission_path, base_name)
+
+        r_depth = torch.sqrt((pred_pcd ** 2).sum(1)).cpu().numpy()
+
+        with open(base_name, 'w') as f:
+            for d in r_depth:
+                f.write('%f\n' % (d))
 
     def _viz_pcd(self, pred_pcd, pred_ctr,  output_path, gt_pcd=None):
         """Visualize predicted future point cloud."""
