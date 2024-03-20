@@ -40,7 +40,7 @@ for fname in tqdm.tqdm(os.listdir(root_dir)):
     assert int(f_idx) >= 1 and int(f_idx) <= 6, 'Future prediction should in 1-6 frames.'
     if sample_idx not in results:
         results[sample_idx] = dict()
-        results[sample_idx][frame_names[int(f_idx)]] = res
+    results[sample_idx][frame_names[int(f_idx)]] = res
 
 sv_pkl['results'] = results
 
