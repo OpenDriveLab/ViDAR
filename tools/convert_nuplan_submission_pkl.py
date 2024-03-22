@@ -10,6 +10,7 @@ dst_path = sys.argv[2]  # path/to/your/submission.pkl
 #  Corresponding information.
 sv_pkl = dict(
     method=None,
+    team=None,
     authors=None,
     email=None,
     institution=None,
