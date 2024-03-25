@@ -36,7 +36,7 @@ for fname in tqdm.tqdm(os.listdir(root_dir)):
         for line in f.readlines():
             cur_res = line.strip('\n').split(' ')
             res.append(cur_res)
-    res = np.array(res)  # n, 1
+    res = np.array(res).astype(np.float16)  # n, 1
     sample_idx, f_idx = fname.strip('.txt').split('_')
     assert int(f_idx) >= 1 and int(f_idx) <= 6, 'Future prediction should in 1-6 frames.'
     if sample_idx not in results:

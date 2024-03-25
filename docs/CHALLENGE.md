@@ -70,7 +70,7 @@ For this challenge, we will compare chamfer distance between predicted point clo
 within the range of -51.2m to 51.2m. Participants are required to provide depths of specified ray directions. Our evaluation
 system will render point clouds by ray directions and provided depth for chamfer distance evaluation.
 
-### Submission <a name="worldmodel-submission"></a>
+### Submission <a name="submission"></a>
 
 The submission should be in the following format:
 ```
@@ -111,6 +111,13 @@ GPU_NUM=8
 python tools/convert_nuplan_submission_pkl.py \
   submission/root \  # path to the generated submission .txt files.
   submission/dt.pkl  # path to the submitted pickle file.
+```
+
+As Hugging Face server will not return any detailed error if submission failed, please validate your
+submission by our provided [script](../tools/validate_hf_submission.py) **before making a submission**:
+```bash
+# Validate the submission.
+python tools/validate_hf_submission.py submission/dt.pkl
 ```
 
 ## Dataset: OpenScene <a name="dataset"></a>

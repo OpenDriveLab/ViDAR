@@ -1,6 +1,6 @@
 ## OpenScene
 
-You can directly follow [HERE](https://github.com/OpenDriveLab/OpenScene/edit/main/docs/getting_started.md#download-data) for OpenScene data pre-processing, or
+You can directly follow [HERE](https://github.com/OpenDriveLab/OpenScene/blob/main/docs/getting_started.md#download-data) for OpenScene data pre-processing, or
 follow the step-by-step instructions below, which is the same as above link.
 
 **Download and Unzip Data**
@@ -63,7 +63,8 @@ ViDAR
               │    ├── ...                                                                            
               │    └── 2021.10.11.08.31.07_veh-50_01750_01948
               ├── trainval
-              └── test
+              ├── test
+              └── private_test_wm
 ```
 
 **Prepare OpenScene data**
