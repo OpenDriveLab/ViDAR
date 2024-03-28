@@ -13,12 +13,13 @@ the `Camera` sensor data and the `LiDAR` sensor data. We also provide the links 
   - `trainval-set` openscene_sensor_trainval_lidar (822 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1)
   - `test-set` openscene_sensor_test_camera (120 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_test_camera)
   - `test-set` openscene_sensor_test_lidar (87 GB): [OpenDriveLab](https://openxlab.org.cn/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/tree/main/openscene-v1.1/openscene_sensor_test_lidar)
+  - `private-test` openscene_sensor_private_test_wm (15 GB): [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_sensor_private_test_wm.tgz?download=true)
 
 - Download and unzip our pre-processed `meta_data` at the following links:
   - `mini-set` openscene_metadata_mini.tgz (509.6 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_mini.tgz?download=true) 
   - `trainval-set` openscene_metadata_trainval.tgz (6.6 GB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_trainval.tgz?download=true)
   - `test-set` openscene_metadata_test.tgz (454 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_test.tgz?download=true)
-  - private-test-set: will be announced soon.
+  - `private-test-set` openscene_metadata_private_test_wm.pkl (26.8 MB): [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.pkl?download=true)
 
 After downloading and unzipping all the data, soft linking those source data files to the `ViDAR/data` folder as the following structure.
 
@@ -30,6 +31,7 @@ ViDAR
 │   └── r101_dcn_fcos3d_pretrain.pth
 └── data/
     └── openscene-v1.1
+        ├── openscene_metadata_private_test_wm.pkl
         ├── meta_datas
         |     ├── mini
         │     │     ├── 2021.05.12.22.00.38_veh-35_01008_01518.pkl

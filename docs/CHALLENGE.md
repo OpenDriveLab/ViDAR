@@ -72,6 +72,10 @@ system will render point clouds by ray directions and provided depth for chamfer
 
 ### Submission <a name="submission"></a>
 
+Download the [openscene_metadata_private_test_wm.pkl](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.pkl?download=true) (26.8 MB) and 
+[sensor_data](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_sensor_private_test_wm.tgz?download=true) (15 GB) for private test set, then prepare the
+submission as the followings.
+
 The submission should be in the following format:
 ```
 dict {
@@ -97,7 +101,8 @@ dict {
 }
 ```
 
-You can also prepare your submission pickle following the following scripts. **Remember to update your information in [tools/convert_nuplan_submission_pkl.py](../tools/convert_nuplan_submission_pkl.py)**
+You can also prepare your submission pickle following the following scripts. **Remember to update your information in [tools/convert_nuplan_submission_pkl.py](../tools/convert_nuplan_submission_pkl.py).**
+We also provide an example [configuration](../projects/configs/vidar_pretrain/OpenScene/submit_vidar_OpenScene_mini_full_3future.py) for preparing submission.
 ```bash
 CONFIG=path/to/vidar_config.py
 CKPT=path/to/checkpoint.pth
