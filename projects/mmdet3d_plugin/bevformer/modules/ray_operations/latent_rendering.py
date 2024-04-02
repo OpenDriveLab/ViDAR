@@ -9,7 +9,29 @@ from mmcv.cnn.bricks.registry import ATTENTION
 from mmcv.cnn import Linear, bias_init_with_prob
 import math
 from mmcv.runner.base_module import BaseModule, ModuleList, Sequential
-from ...utils import e2e_predictor_utils
+
+
+def get_bev_grids(H, W, bs=1, device='cuda', dtype=torch.float, offset=0.5):
+    """Get the reference points used in SCA and TSA.
+    Args:
+        H, W: spatial shape of bev.
+        device (obj:`device`): The device where
+            reference_points should be.
+    Returns:
+        Tensor: reference points used in decoder, has \
+            shape (bs, H * W, 2).
+    """
+    ref_y, ref_x = torch.meshgrid(
+        torch.linspace(
+            offset, H - (1 - offset), H, dtype=dtype, device=device),
+        torch.linspace(
+            offset, W - (1 - offset), W, dtype=dtype, device=device)
+    )
+    ref_y = ref_y.reshape(-1)[None] / H
+    ref_x = ref_x.reshape(-1)[None] / W
+    ref_bev = torch.stack((ref_x, ref_y), -1)
+    ref_bev = ref_bev.repeat(bs, 1, 1)
+    return ref_bev
 
 
 @ATTENTION.register_module()
@@ -73,7 +95,7 @@ class LatentRendering(BaseModule):
         occ_pred = occ_pred.permute(0, 3, 1, 2).contiguous()  # bs, num_height, bev_h, bev_w
 
         # 2. get query positions.
-        occ_grids = e2e_predictor_utils.get_bev_grids(bev_h, bev_w, bs=bs, offset=0.5)  # bs, bev_h * bev_w, 2 [0, 1]
+        occ_grids = get_bev_grids(bev_h, bev_w, bs=bs, offset=0.5)  # bs, bev_h * bev_w, 2 [0, 1]
         occ_grids_r = occ_grids - 0.5
         occ_grid_r_norm = torch.nan_to_num(
             occ_grids_r / torch.sqrt((occ_grids_r ** 2).sum(-1, keepdims=True)))

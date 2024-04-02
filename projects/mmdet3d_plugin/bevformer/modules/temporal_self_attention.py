@@ -4,7 +4,6 @@
 #  Modified by Zhiqi Li
 # ---------------------------------------------
 
-from projects.mmdet3d_plugin.models.utils.bricks import run_time
 from .multi_scale_deformable_attn_function import MultiScaleDeformableAttnFunction_fp32
 from mmcv.ops.multi_scale_deform_attn import multi_scale_deformable_attn_pytorch
 import warnings
