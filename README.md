@@ -27,7 +27,8 @@ future point clouds from historical visual inputs, joint modeling the 3D geometr
 
 ## News <a name="news"></a>
 
-- `[2024/4]` ViDAR-pretraining on nuScenes-fullset is released.
+- `[2024/4]` :fire: ViDAR-pretraining on nuScenes-fullset is released. Please check the configs for [pre-training](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py) and [fine-tuning](projects/configs/vidar_finetune/nusc_fullset/vidar_full_nusc_1future.py). Corresponding
+models are available at [pre-trained](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/pretrain-ViDAR-RN101-nus-full-1future.pth) and [fine-tuned](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/finetune-ViDAR-RN101-nus-full-1future.pth).
 - `[2024/3]` :fire: Predictive world model challenge is launched. Please refer to the [link](docs/CHALLENGE.md) for more details.
 - `[2024/2]` ViDAR code and models initially released.
 - `[2024/2]` ViDAR is accepted by CVPR 2024.
