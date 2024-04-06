@@ -39,7 +39,7 @@ Still in progress:
 - [x] ViDAR-nuScenes-1/8 training and BEVFormer fine-tuning configurations.
 - [x] ViDAR-OpenScene-mini training configurations. (Welcome joining [predictive world model challenge](https://opendrivelab.com/challenge2024/#predictive_world_model)!)
 - [x] ViDAR-nuScenes-full training and BEVFormer full fine-tuning configurations.
-- [ ] `April` UniAD fine-tuning code and configuration.
+- [ ] `[April]` UniAD fine-tuning code and configuration.
 
 
 ## Table of Contents
@@ -63,7 +63,7 @@ Still in progress:
 |   ViDAR-RN101-nus-1-8-3future | nuScenes (12.5% Data)   |  [vidar-nusc-pretrain-3future](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_3future.py)  |  1.25   | 1.48 | 1.79 |  [models](https://drive.google.com/file/d/1FR5lZGIA2KBzg-CsERDegNCuRNrMJsmR/view?usp=sharing) / [logs](https://drive.google.com/file/d/1HeiTGv8ss3fT2wCrFyzSGWwHbn7IR0mH/view?usp=sharing) |
 |   ViDAR-RN101-nus-1-8-1future | nuScenes (100% Data)   |  [vidar-nusc-pretrain-1future](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py)  |  -   | - | - |  [models](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/pretrain-ViDAR-RN101-nus-full-1future.pth) |
 
-For running ViDAR on the nuScenes-full set, please run `python tools/merge_nusc_fullset_pkl.py` before to generate the
+* **HINT**: For running ViDAR on the nuScenes-full set, please run `python tools/merge_nusc_fullset_pkl.py` before to generate the
 *nuscenes_infos_temporal_traintest.pkl* for pre-training.
 
 **OpenScene Dataset:**
@@ -142,6 +142,8 @@ For example, by setting `supervise_all_future=False`, `vidar_head_pred_history_f
 and `vidar_head_per_frame_loss_weight=(1.0,)`, 
 the GPU memory consumption of [vidar-pretrain-3future-model](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_3future.py) is reduced to ~34G.
 An example configuration is provided at [link](projects/configs/vidar_pretrain/nusc_1_8_subset/mem_efficient_vidar_1_8_nusc_3future.py).
+* **Full-nuScenes-Training**: To pre-train ViDAR on the full nuScenes dataset, run `python tools/merge_nusc_fullset_pkl.py` before, to generate the
+*nuscenes_infos_temporal_traintest.pkl* for pre-training.
 
 
 ```bash
