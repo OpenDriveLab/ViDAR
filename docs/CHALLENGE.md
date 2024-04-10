@@ -72,7 +72,7 @@ system will render point clouds by ray directions and provided depth for chamfer
 
 ### Submission <a name="submission"></a>
 
-Download the [openscene_metadata_private_test_wm.pkl](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.tgz?download=true) (7.3 MB) and 
+Download the [openscene_metadata_private_test_wm.tgz](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.tgz?download=true) (7.3 MB) and 
 [sensor_data](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_sensor_private_test_wm.tgz?download=true) (15 GB) for private test set, then prepare the
 submission as the followings.
 

@@ -19,7 +19,7 @@ the `Camera` sensor data and the `LiDAR` sensor data. We also provide the links 
   - `mini-set` openscene_metadata_mini.tgz (509.6 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_mini.tgz?download=true) 
   - `trainval-set` openscene_metadata_trainval.tgz (6.6 GB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_trainval.tgz?download=true)
   - `test-set` openscene_metadata_test.tgz (454 MB): [Google Drive](https://drive.google.com/drive/folders/1MnRwhnEBsgZxbaleHxc3Gw7Ovc4I9az1?usp=sharing) / [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_test.tgz?download=true)
-  - `private-test-set` openscene_metadata_private_test_wm.pkl (26.8 MB): [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.pkl?download=true)
+  - `private-test-set` openscene_metadata_private_test_wm.tgz (7.3 MB): [Hugging Face](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.tgz?download=true)
 
 After downloading and unzipping all the data, soft linking those source data files to the `ViDAR/data` folder as the following structure.
 
@@ -31,7 +31,6 @@ ViDAR
 │   └── r101_dcn_fcos3d_pretrain.pth
 └── data/
     └── openscene-v1.1
-        ├── openscene_metadata_private_test_wm.pkl
         ├── meta_datas
         |     ├── mini
         │     │     ├── 2021.05.12.22.00.38_veh-35_01008_01518.pkl
@@ -39,8 +38,10 @@ ViDAR
         │     │     ├── ...
         │     │     └── 2021.10.11.08.31.07_veh-50_01750_01948.pkl
         |     ├── trainval
-        |     └── test
-        |     
+        |     ├── test
+        |     └── private_test_wm
+        │          └── private_test_wm.pkl
+        |
         └── sensor_blobs
               ├── mini
               │    ├── 2021.05.12.22.00.38_veh-35_01008_01518                                           

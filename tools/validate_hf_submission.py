@@ -5,7 +5,7 @@ import tqdm
 from projects.mmdet3d_plugin.datasets.pipelines.nuplan_loading import PointCloud
 
 dt_path = sys.argv[1]
-meta_file = 'data/openscene-v1.1/openscene_metadata_private_test_wm.pkl'
+meta_file = 'data/openscene-v1.1/meta_datas/private_test_wm/private_test_wm.pkl'
 sensor_blob_root = 'data/openscene-v1.1/sensor_blobs/private_test_wm/'
 meta_info = mmcv.load(meta_file)
 
