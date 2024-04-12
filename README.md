@@ -27,8 +27,9 @@ future point clouds from historical visual inputs, joint modeling the 3D geometr
 
 ## News <a name="news"></a>
 
-- `[2024/4]` :fire: ViDAR-pretraining on nuScenes-fullset is released. Please check the configs for [pre-training](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py) and [fine-tuning](projects/configs/vidar_finetune/nusc_fullset/vidar_full_nusc_1future.py). Corresponding
-models are available at [pre-trained](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/pretrain-ViDAR-RN101-nus-full-1future.pth) and [fine-tuned](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/finetune-ViDAR-RN101-nus-full-1future.pth).
+- `[2024/4]` :fire: ViDAR-pretraining on **End-to-End Autonomous Driving (UniAD)** is released. Please refer to [ViDAR-UniAD Page](./UniAD/README.md) for more information.
+- `[2024/4]` :fire: ViDAR-pretraining on **nuScenes-fullset** is released. Please check the configs for [pre-training](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py) and [fine-tuning](projects/configs/vidar_finetune/nusc_fullset/vidar_full_nusc_1future.py). Corresponding
+models are available at [pre-trained](https://github.com/OpenDriveLab/ViDAR/releases/download/v1.0.0/pretrain-ViDAR-RN101-nus-full-1future.pth) and [fine-tuned](https://github.com/OpenDriveLab/ViDAR/releases/download/v1.0.0/finetune-ViDAR-RN101-nus-full-1future.pth).
 - `[2024/3]` :fire: Predictive world model challenge is launched. Please refer to the [link](docs/CHALLENGE.md) for more details.
 - `[2024/2]` ViDAR code and models initially released.
 - `[2024/2]` ViDAR is accepted by CVPR 2024.
@@ -40,7 +41,7 @@ Still in progress:
 - [x] ViDAR-nuScenes-1/8 training and BEVFormer fine-tuning configurations.
 - [x] ViDAR-OpenScene-mini training configurations. (Welcome joining [predictive world model challenge](https://opendrivelab.com/challenge2024/#predictive_world_model)!)
 - [x] ViDAR-nuScenes-full training and BEVFormer full fine-tuning configurations.
-- [ ] `[April]` UniAD fine-tuning code and configuration.
+- [x] UniAD fine-tuning code and configuration.
 
 
 ## Table of Contents
@@ -62,7 +63,7 @@ Still in progress:
 | :------: | :---: | :---: | :----: | :----: | :----: | :----: |
 |   ViDAR-RN101-nus-1-8-1future | nuScenes (12.5% Data)   |  [vidar-nusc-pretrain-1future](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_1future.py)  |  -   | - | - |  [models](https://drive.google.com/file/d/1NrJ49fFJaIPtnM9mfP_OsomY8AydMlNx/view?usp=sharing) / [logs](https://drive.google.com/file/d/1_80pYnhAHk7ZAiDMJKJW7_jXKGylZ3-D/view?usp=sharing) |
 |   ViDAR-RN101-nus-1-8-3future | nuScenes (12.5% Data)   |  [vidar-nusc-pretrain-3future](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_3future.py)  |  1.25   | 1.48 | 1.79 |  [models](https://drive.google.com/file/d/1FR5lZGIA2KBzg-CsERDegNCuRNrMJsmR/view?usp=sharing) / [logs](https://drive.google.com/file/d/1HeiTGv8ss3fT2wCrFyzSGWwHbn7IR0mH/view?usp=sharing) |
-|   ViDAR-RN101-nus-full-1future | nuScenes (100% Data)   |  [vidar-nusc-pretrain-1future](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py)  |  -   | - | - |  [models](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/pretrain-ViDAR-RN101-nus-full-1future.pth) |
+|   ViDAR-RN101-nus-full-1future | nuScenes (100% Data)   |  [vidar-nusc-pretrain-1future](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py)  |  -   | - | - |  [models](https://github.com/OpenDriveLab/ViDAR/releases/download/v1.0.0/pretrain-ViDAR-RN101-nus-full-1future.pth) |
 
 * **HINT**: For running ViDAR on the nuScenes-full set, please run `python tools/merge_nusc_fullset_pkl.py` before to generate the
 *nuscenes_infos_temporal_traintest.pkl* for pre-training.
@@ -74,13 +75,18 @@ Still in progress:
 |   ViDAR-RN101-OpenScene-3future | OpenScene-mini (12.5% Data)   |  [vidar-OpenScene-pretrain-3future-1-8](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_1_8_3future.py)  |  1.41   | 1.57 | 1.78 |  [models](https://drive.google.com/file/d/1aai3Z7JZavtDAFYzY1pwe41MNNRO_Wn_/view?usp=sharing) / [logs](https://drive.google.com/file/d/1oHdLH11l_ik2M5KyJBtklxa5Skz1bVra/view?usp=sharing) |
 |   ViDAR-RN101-OpenScene-3future | OpenScene-mini-Full (100% Data)   |  [vidar-OpenScene-pretrain-3future-full](projects/configs/vidar_pretrain/OpenScene/vidar_OpenScene_mini_full_3future.py)  |  1.03   | 1.15 | 1.35 |  [models](https://drive.google.com/file/d/1FiiZBHTtZYIvetwru9sTcVpDtKx_zAqd/view?usp=sharing) / [logs](https://drive.google.com/file/d/1mKiX-q6xSbhGa8tmsC19zUQbdTwg1JeA/view?usp=sharing) |
 
-### Down-stream fine-tuning
+### Down-stream fine-tuning (Perception)
 | Downstream Model | Dataset |  pre-train | Config | NDS | mAP | models & logs |
 | :------: | :------: | :---: | :---: | :----: | :----: | :----: |
 | BEVFormer-Base (baseline) | nuScenes (25% Data) |  [FCOS3D](https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth)  | [bevformer-base](projects/configs/vidar_finetune/nusc_1_4_subset/bevformer_1_4_baseline.py)  |  43.40   | 35.47 | [models](https://drive.google.com/file/d/19FKge9dANm7qG_hb1WRmokS3svWiMhE4/view?usp=sharing) / [logs](https://drive.google.com/file/d/1YwvW-ON6hHM4tLyWpo-orVUTXErRAfsu/view?usp=sharing) |
 | BEVFormer-Base | nuScenes (25% Data) |   [ViDAR-RN101-nus-1-8-1future](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_1future.py)   | [vidar-nusc-finetune-1future](projects/configs/vidar_finetune/nusc_1_4_subset/vidar_1_8_nusc_1future.py)  |  45.77   | 36.90 | [models](https://drive.google.com/file/d/1t-SQUf41QcVOnyQk2TaSu7MBYcTqA_sf/view?usp=sharing) / [logs](https://drive.google.com/file/d/1Mq99JK_wATQdz6iwUPlN9YAtraB_HgjJ/view?usp=sharing) |
 | BEVFormer-Base | nuScenes (25% Data) |   [ViDAR-RN101-nus-1-8-3future](projects/configs/vidar_pretrain/nusc_1_8_subset/vidar_1_8_nusc_3future.py)   | [vidar-nusc-finetune-3future](projects/configs/vidar_finetune/nusc_1_4_subset/vidar_1_8_nusc_3future.py)  |  45.61   | 36.84 | [models](https://drive.google.com/file/d/1D6yogBruaIcItgU-dPQt8qCPrDmxin5i/view?usp=sharing) / [logs](https://drive.google.com/file/d/1f7LiYp2hP64KnJzpDjj6JfK6lC4GtIly/view?usp=sharing) |
-| BEVFormer-Base | nuScenes (100% Data) |   [ViDAR-RN101-nus-full-1future](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py)   | [vidar-nusc-finetune-1future](projects/configs/vidar_finetune/nusc_fullset/vidar_full_nusc_1future.py)  |  55.33   | 45.20 | [models](https://github.com/OpenDriveLab/ViDAR/blob/main/archived/finetune-ViDAR-RN101-nus-full-1future.pth) |
+| BEVFormer-Base(baseline)  | nuScenes (100% Data) | [FCOS3D](https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth)  | [bevformer-base](projects/configs/bevformer/bevformer_base.py)  |  51.7   | 41.6 | [models](https://github.com/zhiqi-li/storage/releases/download/v1.0/bevformer_r101_dcn_24ep.pth) |
+| BEVFormer-Base | nuScenes (100% Data) |   [ViDAR-RN101-nus-full-1future](projects/configs/vidar_pretrain/nusc_fullset/vidar_full_nusc_1future.py)   | [vidar-nusc-finetune-1future](projects/configs/vidar_finetune/nusc_fullset/vidar_full_nusc_1future.py)  |  55.33   | 45.20 | [models](https://github.com/OpenDriveLab/ViDAR/releases/download/v1.0.0/finetune-ViDAR-RN101-nus-full-1future.pth) |
+
+### Down-stream fine-tuning (End-to-End)
+
+Please refer to [ViDAR-UniAD page](UniAD/README.md).
 
 ## Installation <a name="installation"></a>
 
