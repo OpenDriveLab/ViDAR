@@ -72,7 +72,7 @@ system will render point clouds by ray directions and provided depth for chamfer
 
 ### Submission <a name="submission"></a>
 
-Download the [openscene_metadata_private_test_wm.pkl](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.pkl?download=true) (26.8 MB) and 
+Download the [openscene_metadata_private_test_wm.tgz](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_metadata_private_test_wm.tgz?download=true) (7.3 MB) and 
 [sensor_data](https://huggingface.co/datasets/OpenDriveLab/OpenScene/resolve/main/openscene-v1.1/openscene_sensor_private_test_wm.tgz?download=true) (15 GB) for private test set, then prepare the
 submission as the followings.
 
@@ -180,19 +180,17 @@ Please consider citing our paper if the project helps your research with the fol
 }
 
 @misc{openscene2023,
-      title = {OpenScene: The Largest Up-to-Date 3D Occupancy Prediction Benchmark in Autonomous Driving},
-      author = {OpenScene Contributors},
-      howpublished={\url{https://github.com/OpenDriveLab/OpenScene}},
-      year = {2023}
+  title={OpenScene: The Largest Up-to-Date 3D Occupancy Prediction Benchmark in Autonomous Driving},
+  author={OpenScene Contributors},
+  howpublished={\url{https://github.com/OpenDriveLab/OpenScene}},
+  year={2023}
 }
 
 @article{sima2023_occnet,
-      title={Scene as Occupancy}, 
-      author={Chonghao Sima and Wenwen Tong and Tai Wang and Li Chen and Silei Wu and Hanming Deng  and Yi Gu and Lewei Lu and Ping Luo and Dahua Lin and Hongyang Li},
-      year={2023},
-      eprint={2306.02851},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+  title={Scene as Occupancy}, 
+  author={Chonghao Sima and Wenwen Tong and Tai Wang and Li Chen and Silei Wu and Hanming Deng  and Yi Gu and Lewei Lu and Ping Luo and Dahua Lin and Hongyang Li},
+  journal={arXiv preprint arXiv:2306.02851},
+  year={2023}
 }
 ```
 

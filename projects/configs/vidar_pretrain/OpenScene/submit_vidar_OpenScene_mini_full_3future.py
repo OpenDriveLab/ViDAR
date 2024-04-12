@@ -273,7 +273,7 @@ data_split = 'private-test'
 data_root = f'data/openscene-v1.1/sensor_blobs/{data_split}'
 # Ignore the train_ann_pickle_root for submission.
 train_ann_pickle_root = f'data/openscene-v1.1/openscene_{data_split}_train.pkl'
-val_ann_pickle_root = f'data/openscene-v1.1/openscene_metadata_private_test_wm.pkl'
+val_ann_pickle_root = f'data/openscene-v1.1/meta_datas/private_test_wm/private_test_wm.pkl'
 file_client_args = dict(backend='disk')
 
 train_pipeline = [
