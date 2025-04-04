@@ -9,7 +9,7 @@
 > - Presented by [OpenDriveLab](https://opendrivelab.com/) at Shanghai AI Lab
 > - :mailbox_with_mail: Primary contact: [Zetong Yang]((https://scholar.google.com/citations?user=oPiZSVYAAAAJ&hl=en)) ( tomztyang@gmail.com ) 
 > - [arXiv paper](https://arxiv.org/abs/2312.17655) | [Video (YouTube, 5min)](https://www.youtube.com/watch?v=j1dU1ii5Rvg) | [Tutorial on World Model (Bilibili)](https://www.bilibili.com/video/BV1ub421p7Rg/?share_source=copy_web&vd_source=47bdbb6c67891d390b613c403e23dcfb)
-> - [CVPR 2024 Autonomous Deiving Challenge - Predictive World Model](https://opendrivelab.com/challenge2024/#predictive_world_model)
+> - [CVPR 2024 Autonomous Driving Challenge - Predictive World Model](https://opendrivelab.com/challenge2024/#predictive_world_model)
 
 
 ## Highlights <a name="highlights"></a>
