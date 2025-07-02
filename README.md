@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
+
 # ViDAR: Visual Point Cloud Forecasting
 
 ![](./assets/teaser.png "Visual point cloud forecasting")
